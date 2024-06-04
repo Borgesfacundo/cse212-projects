@@ -22,6 +22,13 @@ public static class Divisors
     {
         List<int> results = new List<int>();
         // Todo problem 1
+        for (int i = 1; i < number; ++i)
+        {
+            if (number % i == 0)
+            {
+                results.Add(i);
+            }
+        }
         for (int i = 1; i < number; i++)
         {
             if (number % i == 0)
