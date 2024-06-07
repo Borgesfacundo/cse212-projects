@@ -1,8 +1,10 @@
-public static class ArraysTester {
+public static class ArraysTester
+{
     /// <summary>
     /// Entry point for the tests
     /// </summary>
-    public static void Run() {
+    public static void Run()
+    {
         // Sample Test Cases (may not be comprehensive)
         Console.WriteLine("\n=========== PROBLEM 1 TESTS ===========");
         double[] multiples = MultiplesOf(7, 5);
@@ -39,9 +41,24 @@ public static class ArraysTester {
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return new double[0]; // replace this return statement with your own
+
+        //Step 1 Create an Array list, a var int to find the multiples and another int to save the value inside the list.
+        double[] multiples = new double[length];
+        int multiplier = 0;
+        double numberToAdd = 0;
+
+        //Step 2 Create a for loop that will allow us to multiply the number the same number of times that the length.
+        for (int i = 0; i < length; i++)
+        {
+            multiplier = i + 1;
+            numberToAdd = number * multiplier;
+            multiples[i] = numberToAdd;
+        }
+
+        //return the Array list
+        return multiples;
     }
-    
+
     /// <summary>
     /// Rotate the 'data' to the right by the 'amount'.  For example, if the data is 
     /// <c>&lt;List&gt;{1, 2, 3, 4, 5, 6, 7, 8, 9}</c> and an amount is 3 then the list returned should be 
