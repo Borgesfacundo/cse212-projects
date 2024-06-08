@@ -74,5 +74,22 @@ public static class ArraysTester
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
+        //Step 1: Create a new list to save all the values in the new order
+        List<int> newSortList = new List<int>();
+
+        //Step 2: Use GetRange() to sort the list and add the first values of the new list
+        int startingIndex = data.Count - amount;
+        int numOfNewFirstValues = data.Count - startingIndex;
+        newSortList = data.GetRange(startingIndex, numOfNewFirstValues);
+
+        //Step 3: add the rest of the values to the list using a for loop starting by the next value after amount's value.
+        for (int i = 0; i < data.Count && i < startingIndex; i++)
+        {
+            newSortList.Add(data[i]);
+        }
+        for (int i = 0; i < data.Count; i++)
+        {
+            data[i] = newSortList[i];
+        }
     }
 }
