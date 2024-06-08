@@ -79,14 +79,15 @@ public static class ArraysTester
 
         //Step 2: Use GetRange() to sort the list and add the first values of the new list
         int startingIndex = data.Count - amount;
-        int numOfNewFirstValues = data.Count - startingIndex;
-        newSortList = data.GetRange(startingIndex, numOfNewFirstValues);
+        int numOfSlices = data.Count - startingIndex;
+        newSortList = data.GetRange(startingIndex, numOfSlices);
 
         //Step 3: add the rest of the values to the list using a for loop starting by the next value after amount's value.
         for (int i = 0; i < data.Count && i < startingIndex; i++)
         {
             newSortList.Add(data[i]);
         }
+        //Step 4: Use a for loop to pass the new sorted values to the data List
         for (int i = 0; i < data.Count; i++)
         {
             data[i] = newSortList[i];
