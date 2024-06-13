@@ -9,28 +9,24 @@
 
         // Test 1
         // Scenario: Giving 3 values in which the value with highest priority has the highest priority.
-        // Expected Result:  John, Kevin, Bryan
+        // Expected Result:  John / Kevin / Bryan
         Console.WriteLine("Test 1");
         var values = new PriorityQueue();
 
         values.Enqueue("Kevin", 3);
         values.Enqueue("John", 7);
         values.Enqueue("Bryan", 2);
-        Console.WriteLine(values);
 
         Console.WriteLine("1st deleted");
         Console.WriteLine(values.Dequeue());
-        Console.WriteLine(values);
 
         Console.WriteLine("2nd deleted");
         Console.WriteLine(values.Dequeue());
-        Console.WriteLine(values);
 
         Console.WriteLine("3rd deleted");
         Console.WriteLine(values.Dequeue());
-        Console.WriteLine(values);
 
-        Console.WriteLine("Should be Empty now");
+        Console.WriteLine(values.Dequeue());
         Console.WriteLine(values);
 
 
@@ -39,9 +35,22 @@
         Console.WriteLine("---------");
 
         // Test 2
-        // Scenario: 
-        // Expected Result: 
+        // Scenario: Giving 3 values and the first and third have the same priority
+        // Expected Result: Pedro / Simon / Juan / Santiago
         Console.WriteLine("Test 2");
+        var values2 = new PriorityQueue();
+
+        values2.Enqueue("Juan", 9);
+        values2.Enqueue("Pedro", 10);
+        values2.Enqueue("Santiago", 9);
+        values2.Enqueue("Simon", 10);
+        Console.WriteLine(values2);
+
+
+        for (int i = 0; i <= 3; i++) {
+            Console.WriteLine(values2.Dequeue());
+        }
+        Console.WriteLine(values2);
 
         // Defect(s) Found: 
 
