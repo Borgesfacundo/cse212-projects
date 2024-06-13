@@ -30,6 +30,7 @@
         Console.WriteLine(values);
 
 
+
         // Defect(s) Found: Dequeue() was not removing the highest priority value from the List.
 
         Console.WriteLine("---------");
@@ -51,8 +52,10 @@
             Console.WriteLine(values2.Dequeue());
         }
         Console.WriteLine(values2);
+        Console.WriteLine(values2.Dequeue());
 
-        // Defect(s) Found: 
+
+        // Defect(s) Found: Dequeue() In case 2 numbers had same priority it was taking the last one and not the first one.  
 
         Console.WriteLine("---------");
 
