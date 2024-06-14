@@ -18,6 +18,7 @@
         values.Enqueue("Kevin", 3);
         values.Enqueue("John", 7);
         values.Enqueue("Bryan", 2);
+        Console.WriteLine(values);
 
         Console.WriteLine("1st deleted");
         Console.WriteLine(values.Dequeue());
@@ -58,7 +59,7 @@
         Console.WriteLine(values2.Dequeue());
 
 
-        // Defect(s) Found: Dequeue() In case 2 numbers had same priority it was taking the last one and not the first one.  
+        // Defect(s) Found: Dequeue() In case 2 numbers had same priority it was taking the last one and not the first one. And the list.Count was ignoring first value.  
 
         Console.WriteLine("---------");
 
