@@ -1,5 +1,7 @@
-﻿public static class Priority {
-    public static void Test() {
+﻿public static class Priority
+{
+    public static void Test()
+    {
         // TODO Problem 2 - Write and run test cases and fix the code to match requirements
         // Example of creating and using the priority queue
         var priorityQueue = new PriorityQueue();
@@ -48,7 +50,8 @@
         Console.WriteLine(values2);
 
 
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 3; i++)
+        {
             Console.WriteLine(values2.Dequeue());
         }
         Console.WriteLine(values2);
