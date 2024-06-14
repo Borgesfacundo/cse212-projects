@@ -25,50 +25,45 @@ public class Program
                 divisor = false;
             }
         }*/
+        bool playAgain = true;
+        while (playAgain == true)
+            {
+                Console.WriteLine("First CBU");
+                string cbu1 = Console.ReadLine();
 
-        Console.WriteLine("\n======================\nSimple Stack\n======================");
+                Console.WriteLine("Second CBU");
+                string cbu2 = Console.ReadLine();
 
-        var stack = new Stack<int>();
-        stack.Push(1);
-        stack.Push(2);
-        stack.Push(3);
-        stack.Pop();
-        stack.Pop();
-        stack.Push(4);
-        stack.Push(5);
-        stack.Pop();
-        stack.Push(6);
-        stack.Push(7);
-        stack.Push(8);
-        stack.Push(9);
-        stack.Pop();
-        stack.Pop();
-        stack.Push(10);
-        stack.Pop();
-        stack.Pop();
-        stack.Pop();
-        stack.Push(11);
-        stack.Push(12);
-        stack.Pop();
-        stack.Pop();
-        stack.Pop();
-        stack.Push(13);
-        stack.Push(14);
-        stack.Push(15);
-        stack.Push(16);
-        stack.Pop();
-        stack.Pop();
-        stack.Pop();
-        stack.Push(17);
-        stack.Push(18);
-        stack.Pop();
-        stack.Push(19);
-        stack.Push(20);
-        stack.Pop();
-        stack.Pop();
+                if (Equals(cbu1, cbu2) == true)
+                {
+                    Console.WriteLine("Are Equals");
+                }
+                else
+                {
+                    Console.WriteLine("Are NOT Equals");
+                }
 
-        Console.WriteLine("Final contents:");
-        Console.WriteLine(String.Join(", ", stack.ToArray()));
+                Console.WriteLine("Wanna try again? Y/N");
+                string input = Console.ReadLine().ToLower();
+                if (input == "n") {
+                    break;
+                }
+            };
+
+    }
+    public static bool Equals(int a, int b)
+    {
+        bool equal;
+        if (a == b)
+        {
+            equal = true;
+            return equal;
+        }
+        else
+        {
+            return equal = false;
+        }
+
     }
 }
 
