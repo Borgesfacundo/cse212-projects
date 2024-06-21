@@ -157,13 +157,13 @@ public static class SetsAndMapsTester
             var fields = line.Split(",");
             // Todo Problem 2 - ADD YOUR CODE HERE
             string key = fields[3];
-            if (!degrees.ContainsKey(fields[3])) //verify if key Is in Map or not
+            if (!degrees.ContainsKey(key)) //verify if key Is in Map or not
             {
-                degrees.Add(fields[3], 1); // If not add it
+                degrees.Add(key, 1); // If not add it
             }
             else
             {
-                degrees[fields[3]] += 1; // if is in map add +1 to the value
+                degrees[key] += 1; // if is in map add +1 to the value
             }
         }
 
