@@ -192,15 +192,36 @@ public static class SetsAndMapsTester
     private static bool IsAnagram(string word1, string word2)
     {
         // Todo Problem 3 - ADD YOUR CODE HERE
+        var words = new Dictionary<char, char>();
+        word1 = word1.Replace(" ", "").ToLower();
+        word2 = word2.Replace(" ", "").ToLower();
+
+        for (int i = 0; i < word1.Length; i++)
+        {
+            words.Add(word1[i], word1[i]);
+        }
+
+        for (int i = 0; i < word2.Length; i++)
+        {
+            if (words.ContainsKey(word2[i]))
+            {
+                return true;
+            }
+        }
+
+    }
+
+
+
         return false;
     }
 
-    /// <summary>
-    /// Sets up the maze dictionary for problem 4
-    /// </summary>
-    private static Dictionary<ValueTuple<int, int>, bool[]> SetupMazeMap()
-    {
-        Dictionary<ValueTuple<int, int>, bool[]> map = new() {
+/// <summary>
+/// Sets up the maze dictionary for problem 4
+/// </summary>
+private static Dictionary<ValueTuple<int, int>, bool[]> SetupMazeMap()
+{
+    Dictionary<ValueTuple<int, int>, bool[]> map = new() {
             { (1, 1), new[] { false, true, false, true } },
             { (1, 2), new[] { false, true, true, false } },
             { (1, 3), new[] { false, false, false, false } },
@@ -238,38 +259,38 @@ public static class SetsAndMapsTester
             { (6, 5), new[] { false, false, false, false } },
             { (6, 6), new[] { true, false, false, false } }
         };
-        return map;
-    }
+    return map;
+}
 
-    /// <summary>
-    /// This function will read JSON (Javascript Object Notation) data from the 
-    /// United States Geological Service (USGS) consisting of earthquake data.
-    /// The data will include all earthquakes in the current day.
-    /// 
-    /// JSON data is organized into a dictionary. After reading the data using
-    /// the built-in HTTP client library, this function will print out a list of all
-    /// earthquake locations ('place' attribute) and magnitudes ('mag' attribute).
-    /// Additional information about the format of the JSON data can be found 
-    /// at this website:  
-    /// 
-    /// https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
-    /// 
-    /// </summary>
-    private static void EarthquakeDailySummary()
-    {
-        const string uri = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
-        using var client = new HttpClient();
-        using var getRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
-        using var jsonStream = client.Send(getRequestMessage).Content.ReadAsStream();
-        using var reader = new StreamReader(jsonStream);
-        var json = reader.ReadToEnd();
-        var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
+/// <summary>
+/// This function will read JSON (Javascript Object Notation) data from the 
+/// United States Geological Service (USGS) consisting of earthquake data.
+/// The data will include all earthquakes in the current day.
+/// 
+/// JSON data is organized into a dictionary. After reading the data using
+/// the built-in HTTP client library, this function will print out a list of all
+/// earthquake locations ('place' attribute) and magnitudes ('mag' attribute).
+/// Additional information about the format of the JSON data can be found 
+/// at this website:  
+/// 
+/// https://earthquake.usgs.gov/earthquakes/feed/v1.0/geojson.php
+/// 
+/// </summary>
+private static void EarthquakeDailySummary()
+{
+    const string uri = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_day.geojson";
+    using var client = new HttpClient();
+    using var getRequestMessage = new HttpRequestMessage(HttpMethod.Get, uri);
+    using var jsonStream = client.Send(getRequestMessage).Content.ReadAsStream();
+    using var reader = new StreamReader(jsonStream);
+    var json = reader.ReadToEnd();
+    var options = new JsonSerializerOptions { PropertyNameCaseInsensitive = true };
 
-        var featureCollection = JsonSerializer.Deserialize<FeatureCollection>(json, options);
+    var featureCollection = JsonSerializer.Deserialize<FeatureCollection>(json, options);
 
-        // TODO:
-        // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties 
-        // on those classes so that the call to Deserialize above works properly.
-        // 2. Add code below to print out each place a earthquake has happened today and its magitude.
-    }
+    // TODO:
+    // 1. Add code in FeatureCollection.cs to describe the JSON using classes and properties 
+    // on those classes so that the call to Deserialize above works properly.
+    // 2. Add code below to print out each place a earthquake has happened today and its magitude.
+}
 }
