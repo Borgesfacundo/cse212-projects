@@ -13,10 +13,10 @@ public class CustomerService
         // Test Cases
 
         // Test 1
-        // Scenario: Queue of 3 values ("Adam", "ABC", "card declined"), ("Sophia", "DEF", "Battery dead"), ("Carlos", "GHI", "Needs a translator")
+        // Scenario: Queue -1 ("Adam", "ABC", "card declined"), ("Sophia", "DEF", "Battery dead"), ("Carlos", "GHI", "Needs a translator")
         // Expected Result: Adam, Sohpia, Carlos / Empty List
         Console.WriteLine("Test 1");
-        var cs = new CustomerService(3);
+        var cs = new CustomerService(-1);
         cs.AddNewCustomer();
         cs.AddNewCustomer();
         cs.AddNewCustomer();
@@ -40,11 +40,22 @@ public class CustomerService
         Console.WriteLine("=================");
 
         // Test 2
-        // Scenario: 
-        // Expected Result: 
+        // Scenario: Queue of 1 value and we will try to add 2 customers. Adam and Sophia
+        // Expected Result: Adam, "list is full"
         Console.WriteLine("Test 2");
 
-        // Defect(s) Found: 
+        var cs2 = new CustomerService(1);
+        cs2.AddNewCustomer();
+        cs2.AddNewCustomer();
+        Console.WriteLine(cs2);
+
+        //Delete the unique value
+        cs2.ServeCustomer();
+        Console.WriteLine(cs2);
+
+
+
+        // Defect(s) Found: in AddNewCustommer() the if statment was trying to add a new value even when queue was full (queue.count > maxSize)
 
         Console.WriteLine("=================");
 
@@ -92,7 +103,7 @@ public class CustomerService
     private void AddNewCustomer()
     {
         // Verify there is room in the service queue
-        if (_queue.Count > _maxSize)
+        if (_queue.Count >= _maxSize)
         {
             Console.WriteLine("Maximum Number of Customers in Queue.");
             return;
