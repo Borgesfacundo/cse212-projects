@@ -1,5 +1,7 @@
-﻿public static class Priority {
-    public static void Test() {
+﻿public static class Priority
+{
+    public static void Test()
+    {
         // TODO Problem 2 - Write and run test cases and fix the code to match requirements
         // Example of creating and using the priority queue
         var priorityQueue = new PriorityQueue();
@@ -16,6 +18,7 @@
         values.Enqueue("Kevin", 3);
         values.Enqueue("John", 7);
         values.Enqueue("Bryan", 2);
+        Console.WriteLine(values);
 
         Console.WriteLine("1st deleted");
         Console.WriteLine(values.Dequeue());
@@ -48,14 +51,15 @@
         Console.WriteLine(values2);
 
 
-        for (int i = 0; i <= 3; i++) {
+        for (int i = 0; i <= 3; i++)
+        {
             Console.WriteLine(values2.Dequeue());
         }
         Console.WriteLine(values2);
         Console.WriteLine(values2.Dequeue());
 
 
-        // Defect(s) Found: Dequeue() In case 2 numbers had same priority it was taking the last one and not the first one.  
+        // Defect(s) Found: Dequeue() In case 2 numbers had same priority it was taking the last one and not the first one. And the list.Count was ignoring first value.  
 
         Console.WriteLine("---------");
 
