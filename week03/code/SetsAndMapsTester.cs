@@ -57,7 +57,7 @@ public static class SetsAndMapsTester
         Dictionary<ValueTuple<int, int>, bool[]> map = SetupMazeMap();
         var maze = new Maze(map);
         maze.ShowStatus(); // Should be at (1,1)
-        maze.MoveUp(); // Error
+        maze.MoveUp(); // Error // 
         maze.MoveLeft(); // Error
         maze.MoveRight();
         maze.MoveRight(); // Error
