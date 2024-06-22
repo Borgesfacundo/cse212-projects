@@ -192,31 +192,34 @@ public static class SetsAndMapsTester
     private static bool IsAnagram(string word1, string word2)
     {
         // Todo Problem 3 - ADD YOUR CODE HERE
-        Dictionary<char, int> getWordsChar(string word)
         {
-            var words = new Dictionary<char, int>(); // Dict will save each char and the number of repetitions
-            foreach (char c in word)
+            Dictionary<char, int> charRepetitions(string word)
             {
-                if (c != ' ' && !words.ContainsKey(char.ToLower(c)))
+
+                var words = new Dictionary<char, int>();  // Dict will save each char and the number of repetitions
+                foreach (char x in word)
                 {
-                    words.Add(char.ToLower(c), 1);
-                }
-                if (c != ' ' && words.ContainsKey(c))
-                {
-                    words[char.ToLower(c)]++;
+                    char c = char.ToLower(x);
+                    if (c != ' ' && !words.ContainsKey(c))
+                    {
+                        words[c] = 1;
+                    }
+                    if (c != ' ' && words.ContainsKey(c))
+                    {
+                        words[c]++;
+                    }
                 }
                 return words;
             }
-        }
-        var w1 = getWordsChar(word1);
-        var w2 = getWordsChar(word2);
 
-        if (w1.Count != w2.Count)
-        {
-            return false;
-        }
-        else
-        {
+            //Create 2 dictionaries
+            var w1 = charRepetitions(word1);
+            var w2 = charRepetitions(word2);
+
+            if (w1.Count != w2.Count)
+            {
+                return false;
+            }
             foreach (var x in w1)
             {
                 if (!w2.ContainsKey(x.Key) || w2[x.Key] != x.Value)
@@ -224,10 +227,9 @@ public static class SetsAndMapsTester
                     return false;
                 }
             }
+            return true;
         }
-        return false;
     }
-
     /// <summary>
     /// Sets up the maze dictionary for problem 4
     /// </summary>
