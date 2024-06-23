@@ -169,7 +169,6 @@ public static class SetsAndMapsTester
 
         return degrees;
     }
-
     /// <summary>
     /// Determine if 'word1' and 'word2' are anagrams.  An anagram
     /// is when the same letters in a word are re-organized into a 
