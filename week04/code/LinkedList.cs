@@ -144,19 +144,25 @@ public class LinkedList : IEnumerable<int>
             {
                 //removing head
                 RemoveHead();
+                break;
             }
             //check if value = current and current = tail
             if (value == current.Data && current == _tail)
             {
                 //Removing the tail
                 RemoveTail();
+                break;
             }
             //if current = value and its not tail or head lets remove it as removing at the middle.
             if (value == current.Data)
             {
                 current.Prev!.Next = current.Next;
                 current.Next!.Prev = current.Prev;
+                break;
             }
+
+            //try with the next value if =value is not equal to current data
+            current = current.Next;
 
         }
     }
