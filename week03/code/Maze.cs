@@ -38,13 +38,13 @@ public class Maze
             var key = value.Key;
             var values = value.Value;
 
-            if (values[0] == false)
-            {
-                Console.WriteLine("Can't go that way!");
-            }
-            else if (values[0] == true && (_currX - key.Item1) >= 1)
+            if (values[0] == true && (_currX - key.Item1) >= 1)
             {
                 _currX -= key.Item1;             //Moving
+            }
+            else
+            {
+                Console.WriteLine("Can't go that way!");
             }
         }
 
@@ -62,13 +62,13 @@ public class Maze
             var key = value.Key;
             var values = value.Value;
 
-            if (values[1] == false)
-            {
-                Console.WriteLine("Can't go that way!");
-            }
-            else if (values[1] == true && (_currX + key.Item1) <= 6)
+            if (values[1] == true && (_currX + key.Item1) <= 6)
             {
                 _currX += key.Item1;
+            }
+            else
+            {
+                Console.WriteLine("Can't go that way!");
             }
         }
     }
@@ -85,13 +85,13 @@ public class Maze
             var key = value.Key;
             var values = value.Value;
 
-            if (values[2] == false)
-            {
-                Console.WriteLine("Can't go that way!");
-            }
-            else if (values[2] == true && (_currY - key.Item2) >= 1)
+            if (values[2] == true && (_currY - key.Item2) >= 1)
             {
                 _currY -= key.Item2;
+            }
+            else
+            {
+                Console.WriteLine("Can't go that way!");
             }
         }
     }
@@ -108,13 +108,13 @@ public class Maze
             var key = value.Key;
             var values = value.Value;
 
-            if (values[3] == false)
-            {
-                Console.WriteLine("Can't go that way!");
-            }
-            else if (values[2] == true && (_currY + key.Item2) <= 6)
+            if (values[2] == true && (_currY + key.Item2) <= 6)
             {
                 _currY = key.Item2;
+            }
+            else
+            {
+                Console.WriteLine("Can't go that way!");
             }
         }
     }
