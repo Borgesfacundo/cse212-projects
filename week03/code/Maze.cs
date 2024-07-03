@@ -42,9 +42,10 @@ public class Maze
             {
                 Console.WriteLine("Can't go that way!");
             }
-
-            //Moving
-            _currX = key.Item1;
+            else
+            {
+                _currX = key.Item1;             //Moving
+            }
         }
 
     }
