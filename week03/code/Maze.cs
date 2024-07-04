@@ -42,7 +42,7 @@ public class Maze
             {
                 _currX -= key.Item1;             //Moving
             }
-            else
+            if (values[0] == true && (_currX - key.Item1) < 1)
             {
                 Console.WriteLine("Can't go that way!");
             }
@@ -66,7 +66,7 @@ public class Maze
             {
                 _currX += key.Item1;
             }
-            else
+            if (values[1] == true && (_currX + key.Item1) > 6)
             {
                 Console.WriteLine("Can't go that way!");
             }
@@ -89,7 +89,7 @@ public class Maze
             {
                 _currY -= key.Item2;
             }
-            else
+            if (values[2] == true && (_currY - key.Item2) < 1)
             {
                 Console.WriteLine("Can't go that way!");
             }
@@ -108,11 +108,11 @@ public class Maze
             var key = value.Key;
             var values = value.Value;
 
-            if (values[2] == true && (_currY + key.Item2) <= 6)
+            if (values[3] == true && (_currY + key.Item2) <= 6)
             {
-                _currY = key.Item2;
+                _currY += key.Item2;
             }
-            else
+            if (values[3] == true && (_currY + key.Item2) > 6)
             {
                 Console.WriteLine("Can't go that way!");
             }
