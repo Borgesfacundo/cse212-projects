@@ -259,7 +259,7 @@ public static class RecursionTester
         else
         {
             // Solve using recursion
-            decimal ways = CountWaysToClimb(s - 1, remember) + CountWaysToClimb(s - 2,remember) + CountWaysToClimb(s - 3,remember);
+            decimal ways = CountWaysToClimb(s - 1, remember) + CountWaysToClimb(s - 2, remember) + CountWaysToClimb(s - 3, remember);
             remember[s] = ways;
             return ways;
         }
@@ -285,6 +285,16 @@ public static class RecursionTester
     public static void WildcardBinary(string pattern)
     {
         // TODO Start Problem 4
+        int index = pattern.IndexOf("*");
+        if (index == -1)
+        {
+            Console.WriteLine(pattern);
+        }
+
+        WildcardBinary(pattern.Substring(0, index) + "0" + (index + 1 < pattern.Length ? pattern.Substring(index + 1) : ""));
+        WildcardBinary(pattern.Substring(0, index) + "1" + (index + 1 < pattern.Length ? pattern.Substring(index + 1) : ""));
+
+
     }
 
     /// <summary>
