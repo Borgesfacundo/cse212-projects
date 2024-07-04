@@ -179,7 +179,7 @@ public static class RecursionTester
     public static void PermutationsChoose(string letters, int size, string word = "")
     {
         // TODO Start Problem 2
-        if (letters.Length == size)
+        if (word.Length == size)
         {
             Console.WriteLine(word);
         }
