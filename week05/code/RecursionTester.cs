@@ -290,10 +290,14 @@ public static class RecursionTester
         {
             Console.WriteLine(pattern);
         }
+        else
+        {
+            string parte = pattern[..index];
+            string parte2 = pattern[(index + 1)..];
 
-        WildcardBinary(pattern.Substring(0, index) + "0" + (index + 1 < pattern.Length ? pattern.Substring(index + 1) : ""));
-        WildcardBinary(pattern.Substring(0, index) + "1" + (index + 1 < pattern.Length ? pattern.Substring(index + 1) : ""));
-
+            WildcardBinary(pattern[..index] + "0" + pattern[(index + 1)..]); /*+ "0" + pattern[(index - 1)..]);*/
+            WildcardBinary(pattern[..index] + "1" + pattern[(index + 1)..]); /*+ "1" + pattern[(index - 1)..]);*/
+        }
 
     }
 
