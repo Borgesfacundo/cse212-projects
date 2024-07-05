@@ -295,8 +295,8 @@ public static class RecursionTester
             string parte = pattern[..index];
             string parte2 = pattern[(index + 1)..];
 
-            WildcardBinary(pattern[..index] + "0" + pattern[(index + 1)..]); /*+ "0" + pattern[(index - 1)..]);*/
-            WildcardBinary(pattern[..index] + "1" + pattern[(index + 1)..]); /*+ "1" + pattern[(index - 1)..]);*/
+            WildcardBinary(pattern[..index] + "0" + pattern[(index + 1)..]);
+            WildcardBinary(pattern[..index] + "1" + pattern[(index + 1)..]);
         }
 
     }
@@ -316,7 +316,32 @@ public static class RecursionTester
 
         // TODO Start Problem 5
         // ADD CODE HERE
+        currPath.Add((x, y));
 
+        if (maze.IsEnd(x, y))
+        {
+            Console.WriteLine(currPath.AsString());
+        }
+
+        List<(int, int)> possibleMoves = new List<(int, int)>
+    {
+        (x + 1, y), // Move right
+        (x, y + 1), // Move down
+        (x - 1, y), // Move left
+        (x, y - 1)  // Move up
+    };
+
+        foreach (var move in possibleMoves)
+        {
+            int newX = move.Item1;
+            int newY = move.Item2;
+
+            if (maze.IsValidMove(currPath, newX, newY))
+            {
+                SolveMaze(maze, newX, newY, currPath);
+            }
+        }
+        currPath.RemoveAt(currPath.Count - 1);
         // Console.WriteLine(currPath.AsString()); // Use this to print out your path when you find the solution
     }
 }
