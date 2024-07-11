@@ -49,7 +49,7 @@ public class Node
             }
             return Right.Contains(value);
         }
-        else {
+        else { // If value == Data, then return true
             return true;
         }
     }
