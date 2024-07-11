@@ -108,12 +108,13 @@ public static class TreesTester
         {
             return;
         }
-
+        //Calculating middle...
         int middle = (first + last) / 2;
-
+        //Inserting middle to the tree
         bst.Insert(sortedNumbers[middle]);
-
+        //Inserting middle from the first half
         InsertMiddle(sortedNumbers, first, middle - 1, bst);
+        //Inserting middle of the second half
         InsertMiddle(sortedNumbers, middle + 1, last, bst);
     }
 }
