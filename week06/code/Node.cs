@@ -49,7 +49,8 @@ public class Node
             }
             return Right.Contains(value);
         }
-        else { // If value == Data, then return true
+        else
+        { // If value == Data, then return true
             return true;
         }
     }
@@ -57,6 +58,14 @@ public class Node
     public int GetHeight()
     {
         // TODO Start Problem 4
-        return 0; // Replace this line with the correct return statement(s)
+        if (this == null)
+        {
+            return 0;
+        }
+
+        int leftHeight = Left?.GetHeight() ?? 0;
+        int rightHeight = Right?.GetHeight() ?? 0;
+
+        return Math.Max(leftHeight, rightHeight) + 1; // Replace this line with the correct return statement(s)
     }
 }
